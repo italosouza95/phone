@@ -1,0 +1,58 @@
+.phone {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+
+    &-number {
+        display: flex;
+        gap: 15px;
+        border: 1px solid rgb(77, 77, 77);
+        border-radius: 18px;
+        padding: 10px;
+
+        &__country-flag {
+            width: 60px;
+            text-align-last: end !important;
+        }
+
+        &__info {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+
+            &--prefix {
+                max-width: 70px;
+
+                input {
+                    max-width: 65px;
+
+                }
+
+                label {}
+
+                input {}
+            }
+
+            &--number {
+                max-width: 165px;
+
+                label {}
+
+                input {
+                max-width: 140px;
+
+                }
+            }
+        }
+    }
+
+    &__mesage {
+        ul {
+            li {}
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@if(data) {
+<form [formGroup]="form">
+    <div class="phone">
+        <div class="phone-number">
+            <div class="phone-number__country-flag">
+                @if(flagFromPrefix){
+                <img src="/assets/flags/{{flagFromPrefix}}" width="56">
+                }
+            </div>
+            <div class="phone-number__info">
+                <div class="phone-number__info--prefix">
+                    <label [for]="data.idPrefix ?? ''">{{data.labelPrefix | titlecase}}</label>
+                    <input [id]="data.idPrefix" [disabled]="data.isDisabled ?? false" type="text"
+                        formControlName="prefix">
+                </div>
+                <div class="phone-number__info--number">
+                    <label [for]="data.idPhoneNumber ?? ''">{{data.labelPhoneNumber | titlecase}}</label><br>
+                    <input [id]="data.idPhoneNumber"
+                        [disabled]="data.isDisabled ?? form.get('prefix')?.invalid ?? false" maxlength="15"
+                        formControlName="phoneNumber" type="tel">
+                </div>
+            </div>
+        </div>
+        <div class="phone__mesage">
+            <ul>
+                @for (error of (errorsOnForm | keyvalue) ; track $index){
+                <li>{{ error.key }}: {{ error.value }}</li>
+                }
+            </ul>
+        </div>
+    </div>
+</form>
+}
